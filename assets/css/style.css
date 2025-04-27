@@ -134,6 +134,48 @@ section {
   box-shadow: var(--shadow-sm);
 }
 
+/* Header non scrollé (transparent avec texte blanc) */
+.header-sticky:not(.scrolled) .navbar-nav .nav-link {
+  color: white;
+}
+
+/* Header scrollé (fond blanc avec texte noir) */
+.header-sticky.scrolled .navbar-nav .nav-link {
+  color: var(--dark);
+}
+
+/* Bouton dans la navbar - version non scrollée */
+.header-sticky:not(.scrolled) .btn-primary {
+  background-color: white;
+  color: var(--primary);
+}
+
+.header-sticky:not(.scrolled) .btn-primary:hover {
+  background-color: var(--gray-200);
+  color: var(--primary);
+}
+
+/* Assurer que le texte du header est blanc quand il est transparent */
+.header-absolute:not(.scrolled) {
+  background-color: transparent;
+}
+
+/* Ajuster la transition pour que le changement soit fluide */
+.header-sticky, 
+.header-sticky .navbar-nav .nav-link,
+.header-sticky .btn-primary {
+  transition: all 0.3s ease;
+}
+
+.devis-header {
+  background-color: white;
+  box-shadow: var(--shadow-sm);
+}
+
+.devis-header .navbar-nav .nav-link {
+  color: #202124 !important;
+}
+
 .navbar {
   padding: 1.5rem 0;
   transition: var(--transition);
