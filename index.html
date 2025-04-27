@@ -979,28 +979,81 @@
             });
         });
 
-       
+
 
         // Contact form submission
         const contactForm = document.getElementById('contactForm');
-        contactForm.addEventListener('submit', function (e) {
-            e.preventDefault();
-            console.log('Form submitted');
-            const formData = new FormData(contactForm);
-            console.log(formData);
-            fetch('http://127.0.0.1:8000/api/contact', {
-                method: 'POST',
-                body: formData
-            })
-                .then(response => response.json())
-                .then(data => {
-                    console.log(data);
-                    contactForm.reset();
-                })
-                .catch(error => {
-                    console.error('Error:', error);
+        if (contactForm) {
+            contactForm.addEventListener('submit', function (e) {
+                e.preventDefault();
+
+                // Change button state to loading
+                const submitButton = this.querySelector('button[type="submit"]');
+                const originalText = submitButton.innerHTML;
+
+                submitButton.disabled = true;
+                submitButton.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i> Envoi en cours...';
+
+                // Gather form data
+                const formData = new FormData(contactForm);
+                const formDataObject = {};
+
+                // Convert FormData to JSON object
+                formData.forEach((value, key) => {
+                    formDataObject[key] = value;
                 });
-        });
+
+                // Send POST request
+                fetch('https://utils.digita.sn/api/contact', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(formDataObject)
+                })
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Erreur réseau ou serveur');
+                        }
+                        return response.json();
+                    })
+                    .then(data => {
+                        // Success message
+                        contactForm.innerHTML = `
+                <div class="text-center py-5">
+                    <div class="mb-4">
+                        <i class="fas fa-check-circle text-success fa-5x"></i>
+                    </div>
+                    <h3 class="mb-3">Message envoyé avec succès !</h3>
+                    <p class="lead mb-4">Merci pour votre message. Notre équipe vous contactera dans les plus brefs délais.</p>
+                    <a href="index.html" class="btn btn-primary mt-3">Retour à l'accueil</a>
+                </div>
+            `;
+                    })
+                    .catch(error => {
+                        console.error('Erreur:', error);
+
+                        // Error message
+                        contactForm.innerHTML = `
+                <div class="text-center py-5">
+                    <div class="mb-4">
+                        <i class="fas fa-exclamation-triangle text-danger fa-5x"></i>
+                    </div>
+                    <h3 class="mb-3">Une erreur est survenue</h3>
+                    <p class="lead mb-4">Nous n'avons pas pu traiter votre message pour le moment. Veuillez réessayer ultérieurement ou nous contacter directement.</p>
+                    <div class="d-flex justify-content-center gap-3">
+                        <a href="index.html#contact" class="btn btn-primary mt-3">Réessayer</a>
+                        <a href="tel:+221765569300" class="btn btn-outline-primary mt-3">Nous appeler</a>
+                    </div>
+                </div>
+            `;
+
+                        // Reset button
+                        submitButton.disabled = false;
+                        submitButton.innerHTML = originalText;
+                    });
+            });
+        }
     </script>
 </body>
 
