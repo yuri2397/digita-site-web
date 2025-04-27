@@ -1,0 +1,316 @@
+/* 
+ * Bootstrap Override CSS pour Digita
+ * Ce fichier redéfinit les styles Bootstrap pour correspondre à la charte graphique de Digita
+ * À inclure après bootstrap.min.css et avant style.css
+ */
+
+:root {
+    /* Couleurs principales */
+    --bs-primary: #F89520;
+    --bs-primary-rgb: 248, 149, 32;
+    --bs-primary-dark: #e67e00;
+    --bs-primary-light: #ffa94d;
+    --bs-secondary: #5D4EA9;
+    --bs-secondary-rgb: 93, 78, 169;
+    --bs-secondary-dark: #4a3d8c;
+    --bs-secondary-light: #7a6bc2;
+    --bs-dark: #202124;
+    --bs-dark-rgb: 32, 33, 36;
+    --bs-light: #F8F9FA;
+
+    /* Variables Bootstrap */
+    --bs-blue: var(--bs-secondary);
+    --bs-indigo: #6610f2;
+    --bs-purple: var(--bs-secondary);
+    --bs-pink: #d63384;
+    --bs-red: #dc3545;
+    --bs-orange: var(--bs-primary);
+    --bs-yellow: #ffc107;
+    --bs-green: #198754;
+    --bs-teal: #20c997;
+    --bs-cyan: #0dcaf0;
+    --bs-white: #fff;
+    --bs-gray: #6c757d;
+    --bs-gray-dark: #343a40;
+    --bs-gray-100: #f8f9fa;
+    --bs-gray-200: #e9ecef;
+    --bs-gray-300: #dee2e6;
+    --bs-gray-400: #ced4da;
+    --bs-gray-500: #adb5bd;
+    --bs-gray-600: #6c757d;
+    --bs-gray-700: #495057;
+    --bs-gray-800: #343a40;
+    --bs-gray-900: #212529;
+
+    /* Polices */
+    --bs-font-sans-serif: 'Instrument Sans', sans-serif;
+    --bs-font-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+
+    /* Bordures arrondies */
+    --bs-border-radius: 0.5rem;
+    --bs-border-radius-sm: 0.25rem;
+    --bs-border-radius-lg: 1rem;
+    --bs-border-radius-xl: 1.5rem;
+    --bs-border-radius-2xl: 2rem;
+    --bs-border-radius-pill: 50rem;
+}
+
+/* Boutons primaires */
+.btn-primary {
+    background-color: var(--bs-primary);
+    border-color: var(--bs-primary);
+    color: #fff;
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active {
+    background-color: var(--bs-primary-dark) !important;
+    border-color: var(--bs-primary-dark) !important;
+    color: #fff !important;
+}
+
+.btn-primary.disabled,
+.btn-primary:disabled {
+    background-color: var(--bs-primary);
+    border-color: var(--bs-primary);
+    opacity: 0.65;
+}
+
+.btn-primary:not(:disabled):not(.disabled):active,
+.btn-primary:not(:disabled):not(.disabled).active,
+.show>.btn-primary.dropdown-toggle {
+    background-color: var(--bs-primary-dark);
+    border-color: var(--bs-primary-dark);
+}
+
+/* Boutons secondaires */
+.btn-secondary {
+    background-color: var(--bs-secondary);
+    border-color: var(--bs-secondary);
+    color: #fff;
+}
+
+.btn-secondary:hover,
+.btn-secondary:focus,
+.btn-secondary:active {
+    background-color: var(--bs-secondary-dark) !important;
+    border-color: var(--bs-secondary-dark) !important;
+    color: #fff !important;
+}
+
+.btn-secondary.disabled,
+.btn-secondary:disabled {
+    background-color: var(--bs-secondary);
+    border-color: var(--bs-secondary);
+    opacity: 0.65;
+}
+
+.btn-secondary:not(:disabled):not(.disabled):active,
+.btn-secondary:not(:disabled):not(.disabled).active,
+.show>.btn-secondary.dropdown-toggle {
+    background-color: var(--bs-secondary-dark);
+    border-color: var(--bs-secondary-dark);
+}
+
+/* Boutons outline */
+.btn-outline-primary {
+    border-color: var(--bs-primary);
+    color: var(--bs-primary);
+}
+
+.btn-outline-primary:hover,
+.btn-outline-primary:focus,
+.btn-outline-primary:active {
+    background-color: var(--bs-primary) !important;
+    border-color: var(--bs-primary) !important;
+    color: #fff !important;
+}
+
+.btn-outline-secondary {
+    border-color: var(--bs-secondary);
+    color: var(--bs-secondary);
+}
+
+.btn-outline-secondary:hover,
+.btn-outline-secondary:focus,
+.btn-outline-secondary:active {
+    background-color: var(--bs-secondary) !important;
+    border-color: var(--bs-secondary) !important;
+    color: #fff !important;
+}
+
+/* Badges */
+.badge.bg-primary {
+    background-color: var(--bs-primary) !important;
+}
+
+.badge.bg-secondary {
+    background-color: var(--bs-secondary) !important;
+}
+
+/* Formulaires */
+.form-control:focus {
+    border-color: var(--bs-primary-light);
+    box-shadow: 0 0 0 0.25rem rgba(var(--bs-primary-rgb), 0.25);
+}
+
+.form-check-input:checked {
+    background-color: var(--bs-primary);
+    border-color: var(--bs-primary);
+}
+
+.form-select:focus {
+    border-color: var(--bs-primary-light);
+    box-shadow: 0 0 0 0.25rem rgba(var(--bs-primary-rgb), 0.25);
+}
+
+/* Accents de validation */
+.was-validated .form-control:valid:focus,
+.form-control.is-valid:focus {
+    border-color: #198754;
+    box-shadow: 0 0 0 0.25rem rgba(25, 135, 84, 0.25);
+}
+
+.was-validated .form-control:invalid:focus,
+.form-control.is-invalid:focus {
+    border-color: #dc3545;
+    box-shadow: 0 0 0 0.25rem rgba(220, 53, 69, 0.25);
+}
+
+/* Listes de groupe */
+.list-group-item.active {
+    background-color: var(--bs-primary);
+    border-color: var(--bs-primary);
+}
+
+/* Pagination */
+.page-item.active .page-link {
+    background-color: var(--bs-primary);
+    border-color: var(--bs-primary);
+}
+
+.page-link {
+    color: var(--bs-primary);
+}
+
+.page-link:hover {
+    color: var(--bs-primary-dark);
+}
+
+/* Accordion */
+.accordion-button:not(.collapsed) {
+    background-color: rgba(var(--bs-primary-rgb), 0.1);
+    color: var(--bs-primary);
+}
+
+.accordion-button:focus {
+    border-color: var(--bs-primary-light);
+    box-shadow: 0 0 0 0.25rem rgba(var(--bs-primary-rgb), 0.25);
+}
+
+/* Dropdown */
+.dropdown-item.active,
+.dropdown-item:active {
+    background-color: var(--bs-primary);
+}
+
+/* Navbar */
+.navbar-dark .navbar-nav .nav-link.active,
+.navbar-dark .navbar-nav .show>.nav-link {
+    color: var(--bs-primary);
+}
+
+.navbar-light .navbar-nav .nav-link.active,
+.navbar-light .navbar-nav .show>.nav-link {
+    color: var(--bs-primary);
+}
+
+/* Progress */
+.progress-bar {
+    background-color: var(--bs-primary);
+}
+
+/* Cards */
+.card-header {
+    background-color: rgba(var(--bs-primary-rgb), 0.03);
+}
+
+/* Background et texte */
+.bg-primary {
+    background-color: var(--bs-primary) !important;
+}
+
+.bg-secondary {
+    background-color: var(--bs-secondary) !important;
+}
+
+.text-primary {
+    color: var(--bs-primary) !important;
+}
+
+.text-secondary {
+    color: var(--bs-secondary) !important;
+}
+
+/* Liens */
+a {
+    color: var(--bs-primary);
+}
+
+a:hover {
+    color: var(--bs-primary-dark);
+}
+
+/* Styles pour les formulaires avec floating labels */
+.form-floating>.form-control:focus~label,
+.form-floating>.form-control:not(:placeholder-shown)~label {
+    color: var(--bs-primary);
+}
+
+/* Spinner/loader */
+.spinner-border.text-primary {
+    color: var(--bs-primary) !important;
+}
+
+.spinner-grow.text-primary {
+    color: var(--bs-primary) !important;
+}
+
+/* Alert */
+.alert-primary {
+    background-color: rgba(var(--bs-primary-rgb), 0.1);
+    border-color: rgba(var(--bs-primary-rgb), 0.2);
+    color: var(--bs-primary-dark);
+}
+
+.alert-secondary {
+    background-color: rgba(var(--bs-secondary-rgb), 0.1);
+    border-color: rgba(var(--bs-secondary-rgb), 0.2);
+    color: var(--bs-secondary-dark);
+}
+
+/* Toast */
+.toast-header {
+    background-color: rgba(var(--bs-primary-rgb), 0.05);
+}
+
+/* Popover */
+.popover-header {
+    background-color: rgba(var(--bs-primary-rgb), 0.05);
+}
+
+/* Tooltip */
+.tooltip.bs-tooltip-auto[data-popper-placement^=top] .tooltip-arrow::before,
+.tooltip.bs-tooltip-top .tooltip-arrow::before {
+    border-top-color: var(--bs-primary);
+}
+
+.tooltip .tooltip-inner {
+    background-color: var(--bs-primary);
+}
+
+/* Modal */
+.modal-header .btn-close:focus {
+    box-shadow: 0 0 0 0.25rem rgba(var(--bs-primary-rgb), 0.25);
+}
