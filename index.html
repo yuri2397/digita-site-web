@@ -11,7 +11,6 @@
         content="Agence de développement web et mobile au Sénégal. Spécialiste en création de sites, applications mobiles et solutions digitales sur mesure pour entreprises et startups.">
 
     <meta name="author" content="Digita">
-    <meta name="contact" content="hello@digita.sn">
     <meta name="contact" content="digita.sn@gmail.com">
 
     <meta property="og:title" content="Digita - Agence informatique de confiance au Sénégal">
@@ -73,9 +72,7 @@
       "contactPoint": {
         "@type": "ContactPoint",
         "telephone": "+221 76 556 93 00",
-        "telephone": "+221 77 342 52 61",
         "contactType": "customer service",
-        "email": "hello@digita.sn",
         "email": "digita.sn@gmail.com"
       },
       "sameAs": [
@@ -172,7 +169,7 @@
             <div class="row justify-content-center mb-5">
                 <div class="col-lg-8 text-center">
                     <span class="badge bg-primary mb-3">À propos de Digita</span>
-                    <h2>Agence informatique de confiance depuis 2020</h2>
+                    <h2>Nous existons depuis 2020</h2>
                     <p class="lead">Adoptez une nouvelle ère de succès numérique avec Digita. Notre équipe allie un
                         design avant-gardiste à un développement performant pour créer des sites web captivants et
                         optimisés pour la conversion.</p>
@@ -185,7 +182,7 @@
                         <img src="assets/images/people-office-work-day.jpg" alt="Notre équipe au travail"
                             class="img-fluid rounded shadow">
                         <div class="about-experience">
-                            <h2>5</h2>
+                            <h2>+5</h2>
                             <p>Années d'expérience</p>
                         </div>
                     </div>
@@ -470,7 +467,7 @@
                                     <p class="card-text">Un système de gestion des emplois du temps pour l'université de
                                         Thiès,
                                         facilitant la planification des cours et examens.</p>
-                                    <a href="#" class="icon-link">
+                                    <a href="https://edtset.uidt.sn" class="icon-link">
                                         Voir le projet <i class="fas fa-arrow-right ms-2"></i>
                                     </a>
                                 </div>
@@ -491,6 +488,26 @@
                                         même date
                                         de naissance, créant ainsi une communauté unique.</p>
                                     <a href="#" class="icon-link">
+                                        Voir le projet <i class="fas fa-arrow-right ms-2"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="card card-img-scale">
+                                <div class="card-img-scale-wrapper">
+                                    <img src="assets/images/portfolio/caftana.png" class="img-scale" alt="Caftana">
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title">CAFTANA</h5>
+                                    <p class="text-muted">Centrale Africaine de Technologie Atomique et Nucléaire
+                                        Appliquée</p>
+                                    <p class="card-text">Site web pour la Centrale Africaine de Technologie Atomique et
+                                        Nucléaire Appliquée</p>
+                                    <a href="https://catana.sn" class="icon-link">
                                         Voir le projet <i class="fas fa-arrow-right ms-2"></i>
                                     </a>
                                 </div>
@@ -771,15 +788,18 @@
                             <div class="row g-3">
                                 <div class="col-md-6">
                                     <label for="name" class="form-label">Nom complet</label>
-                                    <input type="text" class="form-control" id="name" name="name" placeholder="Votre nom">
+                                    <input type="text" class="form-control" id="name" name="name"
+                                        placeholder="Votre nom">
                                 </div>
                                 <div class="col-md-6">
                                     <label for="email" class="form-label">Email</label>
-                                    <input type="email" class="form-control" id="email" name="email" placeholder="Votre email">
+                                    <input type="email" class="form-control" id="email" name="email"
+                                        placeholder="Votre email">
                                 </div>
                                 <div class="col-md-6">
                                     <label for="phone" class="form-label">Téléphone</label>
-                                    <input type="tel" class="form-control" id="phone" name="phone" placeholder="Votre téléphone">
+                                    <input type="tel" class="form-control" id="phone" name="phone"
+                                        placeholder="Votre téléphone">
                                 </div>
                                 <div class="col-md-6">
                                     <label for="subject" class="form-label">Sujet</label>
@@ -799,7 +819,8 @@
                                 </div>
                                 <div class="col-12">
                                     <div class="form-check mb-3">
-                                        <input class="form-check-input" type="checkbox" id="privacyPolicy" name="privacyPolicy">
+                                        <input class="form-check-input" type="checkbox" id="privacyPolicy"
+                                            name="privacyPolicy">
                                         <label class="form-check-label" for="privacyPolicy">
                                             J'accepte la politique de confidentialité
                                         </label>
@@ -913,25 +934,56 @@
         // Counter animation
         document.addEventListener('DOMContentLoaded', function () {
             const counters = document.querySelectorAll('.counter');
-            const speed = 200;
+            console.log('DOMContentLoaded');
 
-            counters.forEach(counter => {
-                const updateCount = () => {
-                    const target = +counter.getAttribute('data-target') || +counter.innerText;
-                    const count = +counter.innerText.replace(/[^\d]/g, '') || 0;
-                    const inc = target / speed;
 
-                    if (count < target) {
-                        counter.innerText = Math.ceil(count + inc);
-                        setTimeout(updateCount, 1);
-                    } else {
-                        counter.innerText = target;
+            // Fonction pour vérifier si un élément est visible dans la fenêtre
+            function isElementInViewport(el) {
+                const rect = el.getBoundingClientRect();
+                return (
+                    rect.top >= 0 &&
+                    rect.left >= 0 &&
+                    rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                    rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+                );
+            }
+
+            // Fonction pour animer les compteurs
+            function animateCounters() {
+                counters.forEach(counter => {
+                    // Ne démarrer l'animation que si l'élément n'a pas déjà été animé et est visible
+                    if (!counter.hasAttribute('data-animated') && isElementInViewport(counter)) {
+                        counter.setAttribute('data-animated', 'true');
+
+                        // Valeur cible
+                        const target = parseInt(counter.textContent, 10);
+                        // Valeur initiale
+                        let count = 0;
+                        // Durée de l'animation en millisecondes
+                        const duration = 2000;
+                        // Calculer l'incrément et l'intervalle
+                        const increment = target / (duration / 30);
+
+                        // Démarrer l'animation
+                        const animation = setInterval(() => {
+                            count += increment;
+
+                            // Arrondir au nombre entier le plus proche pour l'affichage
+                            counter.textContent = Math.min(Math.round(count), target);
+
+                            // Arrêter l'animation lorsque la valeur cible est atteinte
+                            if (count >= target) {
+                                counter.textContent = target;
+                                clearInterval(animation);
+                            }
+                        }, 30);
                     }
-                };
+                });
+            }
 
-                counter.innerText = '0';
-                updateCount();
-            });
+            // Vérifier les compteurs au chargement initial et lors du défilement
+            animateCounters();
+            window.addEventListener('scroll', animateCounters);
         });
 
         // Back to top button
